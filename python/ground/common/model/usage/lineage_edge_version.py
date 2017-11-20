@@ -6,8 +6,8 @@ class LineageEdgeVersion(RichVersion):
     def __init__(self, json_payload):
         super().__init__(json_payload)
         self._lineage_edge_id = json_payload.get('lineageEdgeId', 0)
-        self._from_id = json_payload.get('fromId', 0)
-        self._to_id = json_payload.get('toId', 0)
+        self._from_id = json_payload.get('fromRichVersionId', 0)
+        self._to_id = json_payload.get('toRichVersionId', 0)
 
     @classmethod
     def from_lineage_version(cls, _id, other_lineage_version):

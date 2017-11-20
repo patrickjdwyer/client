@@ -214,7 +214,9 @@ class GroundClient:
             return model.core.node_version.NodeVersion(response)
 
     def get_node(self, source_key):
-        return model.core.node.Node(self._get_item("nodes", source_key))
+        response = self._get_item("nodes", source_key)
+        if response is not None:
+            return model.core.node.Node(response)
 
     def get_node_latest_versions(self, source_key):
         return self._get_item_latest_versions("nodes", source_key)
